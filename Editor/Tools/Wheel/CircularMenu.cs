@@ -46,7 +46,9 @@ namespace Editor.Tools.Wheel
         // Radial menu.
         private const int Radius = 100;
         private static readonly Vector2 RadialMenuSize = new(100, 100);
-        private const KeyCode ActivationShortcutKey = KeyCode.RightAlt;
+        private const KeyCode ActivationShortcutKey = KeyCode.Q;
+        private const EventModifiers ModifierKey = EventModifiers.Shift;
+        
         private static int _currentlyHoveredSection = -1;
         private static readonly CircularMenuView RootCircularMenuView = new("root", "", () => { }, null);
         private static CircularMenuView _activeCircularMenuView;
@@ -240,7 +242,7 @@ namespace Editor.Tools.Wheel
                     ShowRadialMenu(_currentMousePosition);
                     break;
                 // Show the radial menu when the activation shortcut is pressed and store the initial mouse position.
-                case EventType.KeyDown when (Event.current.keyCode == ActivationShortcutKey && !RadialMenuIsVisible):
+                case EventType.KeyDown when (Event.current.keyCode == ActivationShortcutKey && Event.current.modifiers == ModifierKey && !RadialMenuIsVisible):
                     _timeWhenRadialMenuOpened = EditorApplication.timeSinceStartup;
                     _mousePositionWhenRadialMenuOpened = _currentMousePosition;
                     ShowRadialMenu(_currentMousePosition);
