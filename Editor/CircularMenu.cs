@@ -46,7 +46,7 @@ namespace Editor.Tools.Wheel
         // Radial menu.
         private const int Radius = 100;
         private static readonly Vector2 RadialMenuSize = new(100, 100);
-        private const KeyCode ActivationShortcutKey = KeyCode.Q;
+        private const KeyCode ActivationShortcutKey = KeyCode.X;
         private const EventModifiers ModifierKey = EventModifiers.Shift;
         
         private static int _currentlyHoveredSection = -1;
